@@ -1,0 +1,130 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:focus {
+  outline: 2px solid #059669;
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.icon {
+  font-size: 1rem;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.text {
+  font-size: 0.9rem;
+  transition: opacity 0.2s ease;
+}
+
+/* Card variant (for product cards) */
+.card {
+  padding: 0.5rem 0.75rem;
+  background: var(--theme-background);
+  color: var(--theme-text);
+  border: 1px solid var(--theme-border);
+  font-size: 0.85rem;
+}
+
+.card:hover {
+  background: var(--theme-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px var(--theme-shadow);
+}
+
+.card.inCart {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+.card.inCart:hover {
+  background: var(--accent-primary-hover);
+  border-color: var(--accent-primary-hover);
+}
+
+/* Detail variant (for product detail page) */
+.detail {
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-primary);
+  color: white;
+  font-size: 1rem;
+  min-width: 160px;
+}
+
+.detail:hover {
+  background: var(--accent-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.detail.inCart {
+  background: var(--accent-secondary);
+}
+
+.detail.inCart:hover {
+  background: var(--accent-secondary-hover);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Animation effects */
+.button:hover .icon {
+  transform: scale(1.1);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .card .text {
+    font-size: 0.8rem;
+  }
+  
+  .detail {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card .text {
+    display: none;
+  }
+  
+  .card {
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+  }
+  
+  .detail {
+    padding: 0.5rem 1rem;
+    min-width: 120px;
+  }
+}

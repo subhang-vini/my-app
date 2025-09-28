@@ -1,12 +1,125 @@
 :root {
+  /* Light theme (default) */
   --background: #ffffff;
   --foreground: #171717;
+  --gray-alpha-100: #f5f5f5;
+  --gray-alpha-200: #e5e5e5;
+  --gray-alpha-300: #d4d4d4;
+  --gray-alpha-400: #a3a3a3;
+  --gray-alpha-500: #737373;
+  --gray-alpha-600: #525252;
+  --gray-alpha-700: #404040;
+  --gray-alpha-800: #262626;
+  --gray-alpha-900: #171717;
+  
+  /* Theme-specific variables */
+  --theme-background: var(--background);
+  --theme-text: var(--foreground);
+  --theme-border: var(--gray-alpha-300);
+  --theme-border-hover: var(--gray-alpha-400);
+  --theme-hover: var(--gray-alpha-100);
+  --theme-card-background: var(--background);
+  --theme-card-border: var(--gray-alpha-300);
+  --theme-shadow: rgba(0, 0, 0, 0.08);
+  --theme-shadow-hover: rgba(0, 0, 0, 0.15);
+  
+  /* Accent colors */
+  --accent-primary: #059669;
+  --accent-primary-hover: #047857;
+  --accent-secondary: #ef4444;
+  --accent-secondary-hover: #dc2626;
+  --accent-warning: #f59e0b;
+  --accent-success: #10b981;
+  
+  /* Button colors */
+  --button-primary: #059669;
+  --button-primary-hover: #047857;
+  --button-secondary: var(--gray-alpha-100);
+  --button-secondary-hover: var(--gray-alpha-200);
+  --button-danger: #ef4444;
+  --button-danger-hover: #dc2626;
 }
 
+/* Dark theme */
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --gray-alpha-100: #171717;
+  --gray-alpha-200: #262626;
+  --gray-alpha-300: #404040;
+  --gray-alpha-400: #525252;
+  --gray-alpha-500: #737373;
+  --gray-alpha-600: #a3a3a3;
+  --gray-alpha-700: #d4d4d4;
+  --gray-alpha-800: #e5e5e5;
+  --gray-alpha-900: #f5f5f5;
+  
+  /* Theme-specific variables for dark mode */
+  --theme-background: var(--background);
+  --theme-text: var(--foreground);
+  --theme-border: var(--gray-alpha-200);
+  --theme-border-hover: var(--gray-alpha-300);
+  --theme-hover: var(--gray-alpha-100);
+  --theme-card-background: var(--background);
+  --theme-card-border: var(--gray-alpha-200);
+  --theme-shadow: rgba(0, 0, 0, 0.3);
+  --theme-shadow-hover: rgba(0, 0, 0, 0.4);
+  
+  /* Accent colors for dark mode */
+  --accent-primary: #10b981;
+  --accent-primary-hover: #059669;
+  --accent-secondary: #f87171;
+  --accent-secondary-hover: #ef4444;
+  --accent-warning: #fbbf24;
+  --accent-success: #34d399;
+  
+  /* Button colors for dark mode */
+  --button-primary: #10b981;
+  --button-primary-hover: #059669;
+  --button-secondary: var(--gray-alpha-100);
+  --button-secondary-hover: var(--gray-alpha-200);
+  --button-danger: #f87171;
+  --button-danger-hover: #ef4444;
+}
+
+/* System preference fallback */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --gray-alpha-100: #171717;
+    --gray-alpha-200: #262626;
+    --gray-alpha-300: #404040;
+    --gray-alpha-400: #525252;
+    --gray-alpha-500: #737373;
+    --gray-alpha-600: #a3a3a3;
+    --gray-alpha-700: #d4d4d4;
+    --gray-alpha-800: #e5e5e5;
+    --gray-alpha-900: #f5f5f5;
+    
+    --theme-background: var(--background);
+    --theme-text: var(--foreground);
+    --theme-border: var(--gray-alpha-200);
+    --theme-border-hover: var(--gray-alpha-300);
+    --theme-hover: var(--gray-alpha-100);
+    --theme-card-background: var(--background);
+    --theme-card-border: var(--gray-alpha-200);
+    --theme-shadow: rgba(0, 0, 0, 0.3);
+    --theme-shadow-hover: rgba(0, 0, 0, 0.4);
+    
+    --accent-primary: #10b981;
+    --accent-primary-hover: #059669;
+    --accent-secondary: #f87171;
+    --accent-secondary-hover: #ef4444;
+    --accent-warning: #fbbf24;
+    --accent-success: #34d399;
+    
+    --button-primary: #10b981;
+    --button-primary-hover: #059669;
+    --button-secondary: var(--gray-alpha-100);
+    --button-secondary-hover: var(--gray-alpha-200);
+    --button-danger: #f87171;
+    --button-danger-hover: #ef4444;
   }
 }
 
@@ -22,6 +135,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 * {
@@ -35,8 +149,15 @@ a {
   text-decoration: none;
 }
 
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Dark mode color scheme */
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
+

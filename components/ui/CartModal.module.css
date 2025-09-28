@@ -1,0 +1,132 @@
+.modal {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  margin-top: 0.5rem;
+  animation: slideDown 0.2s ease-out;
+}
+
+.modalContent {
+  background: var(--theme-background);
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1);
+  min-width: 320px;
+  max-width: 400px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.modalHeader {
+  padding: 1rem 1.5rem 0.5rem;
+  border-bottom: 1px solid var(--theme-border);
+}
+
+.modalTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--theme-text);
+}
+
+.modalBody {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.emptyCart {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: var(--theme-text);
+  opacity: 0.7;
+}
+
+.emptyCart p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.loading {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: var(--theme-text);
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* Arrow pointing up to cart icon */
+.modal::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--theme-border);
+}
+
+.modal::after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  right: 21px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid var(--theme-background);
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .modal {
+    right: -50px;
+    min-width: 280px;
+  }
+  
+  .modalContent {
+    min-width: 280px;
+  }
+  
+  .modal::before {
+    right: 50px;
+  }
+  
+  .modal::after {
+    right: 51px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    right: -100px;
+    min-width: 250px;
+  }
+  
+  .modalContent {
+    min-width: 250px;
+  }
+  
+  .modal::before {
+    right: 100px;
+  }
+  
+  .modal::after {
+    right: 101px;
+  }
+}

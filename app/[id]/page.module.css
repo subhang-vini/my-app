@@ -1,0 +1,160 @@
+.page {
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+
+  min-height: 100svh;
+  padding: 20px;
+  font-family: var(--font-geist-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+  }
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--gray-alpha-100);
+  border: 1px solid var(--gray-alpha-200);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--foreground);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background: var(--gray-alpha-200);
+  transform: translateX(-2px);
+}
+
+.productDetail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.productTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--foreground);
+}
+
+.productMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--gray-alpha-100);
+  border-radius: 8px;
+}
+
+.rating {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f59e0b;
+}
+
+.brand, .category {
+  font-size: 0.9rem;
+  color: var(--foreground);
+  opacity: 0.8;
+}
+
+.priceSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.currentPrice {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+.discount {
+  background: #dc2626;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cartButton {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.error {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.error h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+}
+
+.error p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--foreground);
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page {
+    padding: 16px;
+  }
+
+  .productDetail {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .productTitle {
+    font-size: 1.75rem;
+  }
+
+  .currentPrice {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .productTitle {
+    font-size: 1.5rem;
+  }
+
+  .currentPrice {
+    font-size: 1.75rem;
+  }
+}

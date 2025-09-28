@@ -1,0 +1,74 @@
+.cartIconContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.cartIcon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  background: var(--theme-background);
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--theme-text);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px var(--theme-shadow);
+  cursor: pointer;
+}
+
+.cartIcon:hover {
+  background: var(--theme-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--theme-shadow-hover);
+}
+
+.cartIcon:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px var(--theme-shadow);
+}
+
+.cartIcon:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--accent-secondary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  min-width: 20px;
+  text-align: center;
+  line-height: 1;
+  box-shadow: 0 2px 4px var(--theme-shadow);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cartIcon {
+    padding: 0.6rem;
+  }
+  
+  .icon {
+    font-size: 1.3rem;
+  }
+  
+  .badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+    min-width: 18px;
+  }
+}

@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.description {
+  padding: 1.5rem;
+  background: var(--gray-alpha-100);
+  border-radius: 12px;
+}
+
+.description h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--foreground);
+}
+
+.description p {
+  line-height: 1.6;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.productDetails {
+  padding: 1.5rem;
+  background: var(--gray-alpha-100);
+  border-radius: 12px;
+}
+
+.productDetails h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--foreground);
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detailLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--foreground);
+  opacity: 0.7;
+}
+
+.detailValue {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.tags {
+  padding: 1.5rem;
+  background: var(--gray-alpha-100);
+  border-radius: 12px;
+}
+
+.tags h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--foreground);
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: var(--foreground);
+  color: var(--background);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+}
