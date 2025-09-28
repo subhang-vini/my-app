@@ -35,6 +35,18 @@
   outline-offset: 2px;
 }
 
+.cartIcon.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.cartIcon.disabled:hover {
+  background: var(--theme-background);
+  transform: none;
+  box-shadow: 0 2px 8px var(--theme-shadow);
+}
+
 .icon {
   font-size: 1.5rem;
   line-height: 1;

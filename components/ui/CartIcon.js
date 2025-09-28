@@ -18,6 +18,11 @@ export default function CartIcon() {
   const containerRef = useRef(null);
 
   const handleMouseEnter = () => {
+    // Don't show modal if cart is empty
+    if (cartCount === 0) {
+      return;
+    }
+    
     // Clear any existing hide timeout
     if (hideTimeout.current) {
       clearTimeout(hideTimeout.current);
@@ -44,6 +49,11 @@ export default function CartIcon() {
   const handleClick = (e) => {
     e.preventDefault(); // Prevent navigation to cart page
     e.stopPropagation();
+    
+    // Don't open modal if cart is empty
+    if (cartCount === 0) {
+      return;
+    }
     
     // Clear any pending timeouts
     if (hoverTimeout.current) {
@@ -81,12 +91,14 @@ export default function CartIcon() {
       ref={containerRef}
     >
       <div
-        className={styles.cartIcon}
+        className={`${styles.cartIcon} ${cartCount === 0 ? styles.disabled : ''}`}
         onClick={handleClick}
         role="button"
-        tabIndex={0}
-        aria-label={`Cart with ${cartCount} items`}
+        tabIndex={cartCount === 0 ? -1 : 0}
+        aria-label={cartCount === 0 ? "Cart is empty" : `Cart with ${cartCount} items`}
+        aria-disabled={cartCount === 0}
         onKeyDown={(e) => {
+          if (cartCount === 0) return;
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             handleClick(e);
