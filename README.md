@@ -32,7 +32,7 @@ A modern, responsive e-commerce application built with Next.js that provides a s
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/subhang-vini/my-app.git
    cd my-app
    ```
 
